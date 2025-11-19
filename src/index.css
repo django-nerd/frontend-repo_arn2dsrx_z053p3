@@ -43,4 +43,24 @@
     --tw-exit-translate-x: initial;
     --tw-exit-translate-y: initial;
   }
+
+  /* Floating logo animation */
+  @keyframes float {
+    0% { transform: translateY(0) rotate(-0.5deg); }
+    50% { transform: translateY(-6px) rotate(0.5deg); }
+    100% { transform: translateY(0) rotate(-0.5deg); }
+  }
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  /* Gentle sway for decorative elements */
+  @keyframes sway {
+    0% { transform: rotate(-1deg) scale(1); }
+    50% { transform: rotate(1deg) scale(1.02); }
+    100% { transform: rotate(-1deg) scale(1); }
+  }
+  .animate-sway {
+    animation: sway 5.5s ease-in-out infinite;
+  }
 }
