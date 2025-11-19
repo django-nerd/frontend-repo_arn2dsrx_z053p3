@@ -30,7 +30,10 @@ const Hero = ({ logoUrl, lang = 'gr', setLang }) => {
       <nav className="relative z-10 max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
         <div className="flex items-center gap-3">
           {logoUrl ? (
-            <img src={logoUrl} alt="Λογότυπο" className="h-10 w-auto object-contain animate-float" />
+            <div className="relative inline-flex items-center justify-center">
+              <img src={logoUrl} alt="Λογότυπο" className="h-10 w-auto object-contain animate-bounce-gentle" />
+              <span className="absolute inset-0 rounded-full blur-md opacity-60 pointer-events-none" />
+            </div>
           ) : (
             <div className="h-10 w-10 rounded-full bg-emerald-700/40 border border-emerald-500/40" />
           )}
@@ -66,7 +69,9 @@ const Hero = ({ logoUrl, lang = 'gr', setLang }) => {
           </div>
         </div>
         <div className="flex justify-center md:justify-end animate-sway">
-          <Flame size={160} />
+          <div className="animate-glow rounded-full">
+            <Flame size={160} />
+          </div>
         </div>
       </div>
     </header>
