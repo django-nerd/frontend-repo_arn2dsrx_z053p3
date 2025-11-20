@@ -29,6 +29,10 @@ const Gallery = ({ lang = 'gr', items = itemsDefault }) => {
 
   return (
     <section className="relative py-16 md:py-24 bg-black">
+      <div className="absolute inset-0 pointer-events-none select-none" aria-hidden>
+        {/* subtle radial gradient to enhance edges */}
+        <div className="absolute inset-0 bg-[radial-gradient(800px_200px_at_20%_10%,rgba(16,185,129,0.08),transparent)]" />
+      </div>
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-end justify-between">
           <div>
@@ -54,7 +58,7 @@ const Gallery = ({ lang = 'gr', items = itemsDefault }) => {
                 <img
                   src={s.img}
                   alt={s.title?.[lang] || 'slide'}
-                  className={`w-full h-full object-cover ${fading ? 'opacity-90' : 'opacity-100'} transition-opacity duration-400`}
+                  className={`w-full h-full object-cover ${fading ? 'opacity-90' : 'opacity-100'} transition-opacity duration-400 blur-in`}
                   loading={i === index ? 'eager' : 'lazy'}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />

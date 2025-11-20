@@ -1,6 +1,8 @@
 import React from 'react'
 import { Menu } from 'lucide-react'
 import Flame from './Flame'
+import Embers from './Embers'
+import ParallaxWrapper from './ParallaxWrapper'
 
 const Hero = ({ logoUrl, lang = 'gr', setLang }) => {
   const nav = {
@@ -27,11 +29,14 @@ const Hero = ({ logoUrl, lang = 'gr', setLang }) => {
           'radial-gradient(800px 300px at 10% 10%, rgba(255,255,255,0.15), transparent), radial-gradient(600px 200px at 70% 0%, rgba(255,255,255,0.1), transparent)'
       }} />
 
+      {/* Embers layer */}
+      <Embers count={22} />
+
       <nav className="relative z-10 max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
         <div className="flex items-center gap-3">
           {logoUrl ? (
             <div className="relative inline-flex items-center justify-center">
-              <img src={logoUrl} alt="Λογότυπο" className="h-10 w-auto object-contain animate-bounce-gentle" />
+              <img src={logoUrl} alt="Λογότυπο" className="h-10 w-auto object-contain animate-bounce-gentle hover:scale-[1.03] transition-transform" />
               <span className="absolute inset-0 rounded-full blur-md opacity-60 pointer-events-none" />
             </div>
           ) : (
@@ -49,8 +54,8 @@ const Hero = ({ logoUrl, lang = 'gr', setLang }) => {
             ))}
           </ul>
           <div className="ml-4 hidden md:flex items-center gap-2 text-xs font-semibold">
-            <button onClick={() => setLang && setLang('gr')} className={`px-2 py-1 rounded ${lang==='gr' ? 'bg-emerald-600 text-white' : 'text-emerald-100/80 hover:text-white border border-emerald-700/40'}`}>GR</button>
-            <button onClick={() => setLang && setLang('en')} className={`px-2 py-1 rounded ${lang==='en' ? 'bg-emerald-600 text-white' : 'text-emerald-100/80 hover:text-white border border-emerald-700/40'}`}>EN</button>
+            <button onClick={() => setLang && setLang('gr')} className={`${lang==='gr' ? 'bg-emerald-600 text-white' : 'text-emerald-100/80 hover:text-white border border-emerald-700/40'} px-2 py-1 rounded`}>GR</button>
+            <button onClick={() => setLang && setLang('en')} className={`${lang==='en' ? 'bg-emerald-600 text-white' : 'text-emerald-100/80 hover:text-white border border-emerald-700/40'} px-2 py-1 rounded`}>EN</button>
           </div>
         </div>
       </nav>
@@ -68,11 +73,11 @@ const Hero = ({ logoUrl, lang = 'gr', setLang }) => {
             <a href="#contact" className="px-5 py-3 border border-emerald-500/60 text-emerald-100 hover:bg-emerald-800/40 rounded-lg transition">{cta2[lang]}</a>
           </div>
         </div>
-        <div className="flex justify-center md:justify-end animate-sway">
+        <ParallaxWrapper strength={8} className="flex justify-center md:justify-end animate-sway">
           <div className="animate-glow rounded-full">
             <Flame size={160} />
           </div>
-        </div>
+        </ParallaxWrapper>
       </div>
     </header>
   )

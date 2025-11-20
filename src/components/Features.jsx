@@ -1,14 +1,15 @@
 import React from 'react'
 import { Flame as FlameIcon, Hammer, Shield, Leaf } from 'lucide-react'
+import SoftTiltCard from './SoftTiltCard'
 
 const FeatureCard = ({ icon: Icon, title, text }) => (
-  <div className="p-6 rounded-2xl bg-emerald-900/30 border border-emerald-700/30 hover:border-emerald-500/40 transition">
+  <SoftTiltCard className="p-6">
     <div className="w-10 h-10 rounded-lg bg-emerald-700/40 flex items-center justify-center text-emerald-200">
       <Icon size={20} />
     </div>
     <h3 className="mt-4 text-white font-semibold">{title}</h3>
     <p className="mt-2 text-emerald-100/85 text-sm leading-relaxed">{text}</p>
-  </div>
+  </SoftTiltCard>
 )
 
 const Features = ({ lang = 'gr' }) => {
